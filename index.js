@@ -1,9 +1,21 @@
-const convert = require('xml-js');
-const msiRemoteServer = require('./msiRemoteServer');
+const msiRemoteServer = require('./app/msiRemoteServer');
+const utils = require('./app/utils');
+const { inspect } = require('util');
 
 msiRemoteServer.getXmlDataAsync()
     .then((xml) => {
-        var result1 = convert.xml2json(xml, {compact: true, spaces: 4});
-        console.log(result1);
+        const response = utils.convertXmlToJson(xml);
+
+        if (response.error) {
+            console.log(response.error.message || response.error);
+        } else {
+            const data = {
+                temps: utils.getTempsFromResponse(response),
+                usage: utils.getUsageFromResponse(response)
+            }
+
+            console.log(inspect(response, false, null, true));
+            console.log('Parsed data:', data);
+        }
     })
     .catch(console.log);

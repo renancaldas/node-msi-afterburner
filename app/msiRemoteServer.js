@@ -1,5 +1,5 @@
 const http = require('http');
-const { msiRemoteServer } = require('./config');
+const { msiRemoteServer } = require('../config');
 
 const getXmlDataAsync = () => new Promise((resolve, reject) => {
     http.get(`http://${msiRemoteServer.url}/mahm`, {
