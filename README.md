@@ -3,7 +3,7 @@
 # node-msi-afterburner
 A NodeJS application to consume real-time data from MSI Afterburner Remote Server
 
-![](https://cdn.rawgit.com/renancaldas/node-msi-afterburner/master/img/terminal.png)
+![](https://raw.githubusercontent.com/renancaldas/node-msi-afterburner/master/img/terminal.png)
 
 # How to use
 1. Download MSI Afterburner
